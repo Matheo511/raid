@@ -1,12 +1,12 @@
-import { Command } from '../../KINGMAN_NUKE/types/KING-NUKE';
+import { Command } from './KING-NUKE';
+import { Message } from 'discord.js';
+
 export default {
-    name: "clear-channels",
-    description: "",
-    run: async(client, kmsg, args, kingman)=> {
-        if(!client.config.devs.includes(kmsg.author.id)) return;
-        if(!kmsg.guild) return;
-        await kingman.clearChannels(kmsg.guild).catch(e=> {
-            console.log(e)
-        })
-    } 
-} as Command
+  name: "clear-channels",
+  description: "Commande désactivée dans cette version (safe stub)",
+  run: async (client, kmsg: Message) => {
+    if (!kmsg.guild) return;
+    await kmsg.channel.send("La commande 'clear-channels' est désactivée dans cette version.");
+    console.log(`[SAFE-STUB] clear-channels appelé par ${kmsg.author.id} dans ${kmsg.guild.id}`);
+  }
+} as Command;
