@@ -1,6 +1,6 @@
 import { Message } from 'discord.js'
-import { Events } from '../../KINGMAN_NUKE/types/KING-NUKE'
-import KINGMAN from '../../KINGMAN_NUKE/KINGMAN';
+import { Events } from './KING-NUKE'
+import KINGMAN from './KINGMAN';
 export default {
     name: "messageCreate",
     run: async(client, kmsg: Message)=> {
