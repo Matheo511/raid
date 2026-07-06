@@ -1,5 +1,5 @@
 import { Client, Guild } from "discord.js";
-import { ChannelsData, RoleData, MessageData } from "./types/KING-NUKE";
+import { ChannelsData, RoleData, MessageData } from "./KING-NUKE";
 import * as Logger from './Logger'
 class KINGAMN {
     public client : Client;
