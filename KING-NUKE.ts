@@ -1,32 +1,43 @@
-import { ClientEvents, Message, Snowflake } from 'discord.js';
+import { ClientEvents, Message } from 'discord.js';
 import { KINGMAN_Client } from '../Client';
-import { KINGMAN } from '../KINGMAN';
+import KINGMAN from '../KINGMAN';
+
 export interface ChannelsData {
-    name: string,
-    nsfw: boolean,
-    number: number,
-    topic: string
+    name: string;
+    nsfw: boolean;
+    number: number;
+    topic: string;
 }
+
 export interface MessageData {
-    content: string,
-    number: number
+    content: string;
+    number: number;
 }
+
 export interface RoleData {
-    name: string,
-    color: any,
-    number: number
+    name: string;
+    color: any;
+    number: number;
 }
+
 export interface Command {
-    name: string,
-    run: (client: KINGMAN_Client, message: Message, args: Snowflake[], kingman: KINGAMN) => void;
-    description?: string,
+    name: string;
+    run: (
+        client: KINGMAN_Client,
+        message: Message,
+        args: string[],
+        kingman: KINGMAN
+    ) => void;
+    description?: string;
 }
+
 export interface ConfigData {
-    token: string,
-    prefix: string,
-    devs: [string]
+    token: string;
+    prefix: string;
+    devs: string[];
 }
+
 export interface Events {
-    name: keyof ClientEvents,
-    run: (client: KINGMAN_Client, ...args: any[])=> void;
-} 
+    name: keyof ClientEvents;
+    run: (client: KINGMAN_Client, ...args: any[]) => void;
+}
