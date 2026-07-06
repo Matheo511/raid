@@ -1,15 +1,31 @@
 import { Client, ClientOptions, Collection } from "discord.js";
-import { Command, ConfigData } from './KING-NUKE'
+import { Command, ConfigData } from './types/KING-NUKE';
 import Config from "./Config";
-export class KINGMAN_Client extends Client{
-    public commands : Collection<any, Command>;
+
+export class KINGMAN_Client extends Client {
+    public commands: Collection<string, Command>;
     public config: ConfigData;
-    constructor(Clinent_Ops: ClientOptions){
-        super(Clinent_Ops)
+
+    constructor(clientOptions: ClientOptions) {
+        super(clientOptions);
         this.commands = new Collection();
         this.config = Config;
-        ['command', 'events'].forEach(p => {
-            require(`./handler/${p}`).default(this)
-        })
+        this.loadHandlers();
+    }
+
+    private async loadHandlers(): Promise<void> {
+        try {
+            const handlers = ['command', 'events'];
+            for (const handler of handlers) {
+                try {
+                    const module = await import(`./handler/${handler}`);
+                    module.default(this);
+                } catch (error) {
+                    console.error(`Failed to load handler: ${handler}`, error);
+                }
+            }
+        } catch (error) {
+            console.error('Error loading handlers:', error);
+        }
     }
 }
