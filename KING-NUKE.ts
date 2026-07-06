@@ -1,6 +1,6 @@
 import { ClientEvents, Message } from 'discord.js';
-import { KINGMAN_Client } from '../Client';
-import KINGMAN from '../KINGMAN';
+import { KINGMAN_Client } from './Client';
+import KINGMAN from './KINGMAN';
 
 export interface ChannelsData {
     name: string;

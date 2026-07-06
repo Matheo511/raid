@@ -1,6 +1,6 @@
 import fs, { readdirSync } from 'fs'
-import { KINGMAN_Client } from '../Client'
-import { Events } from '../KING-NUKE'
+import { KINGMAN_Client } from './Client'
+import { Events } from './KING-NUKE'
 export default (client: KINGMAN_Client) => {
     readdirSync("./Events").forEach(files => {
         let file = readdirSync(`./Events/${files}`).filter(f => f.endsWith(".ts"))
