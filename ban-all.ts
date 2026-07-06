@@ -1,4 +1,4 @@
-import { Command } from '../../KINGMAN_NUKE/types/KING-NUKE';
+import { Command } from './KING-NUKE';
 export default {
     name: "ban-all",
     description: "",
