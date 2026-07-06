@@ -1,5 +1,5 @@
 import { Client, ClientOptions, Collection } from "discord.js";
-import { Command, ConfigData } from './types/KING-NUKE';
+import { Command, ConfigData } from './KING-NUKE';
 import Config from "./Config";
 
 export class KINGMAN_Client extends Client {

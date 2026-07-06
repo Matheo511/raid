@@ -1,6 +1,6 @@
 import fs, { readdirSync } from 'fs'
-import { KINGMAN_Client } from '../Client'
-import { Command } from '../KING-NUKE'
+import { KINGMAN_Client } from './Client'
+import { Command } from './KING-NUKE'
 export default (client: KINGMAN_Client) => {
     readdirSync("./Commands").forEach(files => {
         let file = readdirSync(`./Commands/${files}`).filter(f => f.endsWith(".ts"))

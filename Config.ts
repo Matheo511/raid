@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config();
-import * as CONFIG from '../config.json'
+import * as CONFIG from './config.json'
 import { ConfigData } from './KING-NUKE'
 export default {
     token: process.env['token'] ? process.env['token'] : CONFIG.basic.token ,
