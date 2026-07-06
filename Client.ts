@@ -14,18 +14,32 @@ export class KINGMAN_Client extends Client {
     }
 
     private async loadHandlers(): Promise<void> {
-        try {
-            const handlers = ['command', 'events'];
-            for (const handler of handlers) {
+        const handlers = ['command', 'events'];
+        for (const handler of handlers) {
+            // try handler/<name>, fallback to ./<name>
+            const candidatePaths = [
+                `./handler/${handler}`,
+                `./${handler}`
+            ];
+            let loaded = false;
+            for (const path of candidatePaths) {
                 try {
-                    const module = await import(`./handler/${handler}`);
-                    module.default(this);
-                } catch (error) {
-                    console.error(`Failed to load handler: ${handler}`, error);
+                    const module = await import(path);
+                    if (module && typeof module.default === 'function') {
+                        module.default(this);
+                    } else if (module && module.init && typeof module.init === 'function') {
+                        // alternative export styles
+                        module.init(this);
+                    }
+                    loaded = true;
+                    break;
+                } catch (err) {
+                    // continue to next candidate
                 }
             }
-        } catch (error) {
-            console.error('Error loading handlers:', error);
+            if (!loaded) {
+                console.error(`Handler not found: ${handler} (tried ${candidatePaths.join(', ')})`);
+            }
         }
     }
 }
