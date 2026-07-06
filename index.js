@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config();
-import { KINGMAN_Client } from './KINGMAN_NUKE/Client';
+import { KINGMAN_Client } from './Client';
 const client = new KINGMAN_Client({
     intents: 32767
 })
