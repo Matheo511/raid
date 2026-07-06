@@ -19,4 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/KMKINGMAN/Raid-Bot-TS"
   }
+ "dependencies": {
+  "chalk": "^4.1.2",
+  "colors": "^1.4.0",
+  "discord.js": "^13.3.1",
+  "dotenv": "^10.0.0",
+  "typescript": "^5.0.0"
 }
