@@ -1,6 +1,6 @@
 import { ClientEvents, Message, Snowflake } from 'discord.js';
 import { KINGMAN_Client } from '../Client';
-import KINGAMN from '../KINGMAN';
+import { KINGMAN } from '../KINGMAN';
 export interface ChannelsData {
     name: string,
     nsfw: boolean,
