@@ -4,7 +4,7 @@
   "description": "discord raid - nuke - hack bot",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts"
+    "start": "node index.js"
   },
   "author": "muhammad rafar kurkar [+962792914245]",
   "license": "GPL-3.0",
